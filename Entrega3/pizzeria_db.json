@@ -1,0 +1,231 @@
+use pizzeria
+
+db.createCollection("customer_command")
+db.insertMany(
+    [{
+            "_id": {
+                "$oid": "6458b32d04f2274829408aef"
+            },
+            "name": "Alejandro",
+            "surname": "Rodriguez",
+            "address": "Calle Llull 18",
+            "cp": 8005,
+            "location": "Barcelona",
+            "province": "Barcelona",
+            "phone": 635022999,
+            "commands": {
+                "data/hora": "2022-04-18 21:00",
+                "pick_order": "home",
+                "total_products": {
+                    "product1": {
+                        "$oid": "6458b54b04f2274829408af4"
+                    },
+                    "amount1": 5,
+                    "product2": {
+                        "$oid": "6458b54b04f2274829408af6"
+                    },
+                    "amount2": 3
+                },
+                "price": 75
+            },
+            "store": {
+                "$oid": "6458c46604f2274829408b00"
+            },
+            "delivery_man": {
+                "$oid": "6458c54604f2274829408b19"
+            },
+            "date_lliurament": "2022-04-18 21:10"
+        },
+        {
+            "_id": {
+                "$oid": "6458b34704f2274829408af1"
+            },
+            "name": "Carlos",
+            "surname": "Rodriguez",
+            "address": "Calle Marina 10",
+            "cp": 8007,
+            "location": "Barcelona",
+            "province": "Barcelona",
+            "phone": 635022777,
+            "commands": [{
+                    "data/hora": "2022-06-14 20:00",
+                    "pick_order": "store",
+                    "total_products": {
+                        "product1": {
+                            "$oid": "6458b54b04f2274829408af5"
+                        },
+                        "amount1": 4,
+                        "product2": {
+                            "$oid": "6458b54b04f2274829408af7"
+                        },
+                        "amount2": 2
+                    },
+                    "price": 60
+                },
+                {
+                    "data/hora": "2022-06-14 20:00",
+                    "pick_order": "store",
+                    "total_products": {
+                        "product1": {
+                            "$oid": "6458b54b04f2274829408af8"
+                        },
+                        "amount1": 2,
+                        "product2": {
+                            "$oid": "6458b54b04f2274829408af6"
+                        },
+                        "amount2": 5
+                    },
+                    "price": 40
+                }
+            ],
+            "store": {
+                "$oid": "6458c46604f2274829408b01"
+            },
+            "delivery_man": null
+        }
+    ])
+
+db.createCollection("product")
+db.insertMany(
+    [{
+            "_id": {
+                "$oid": "6458b54b04f2274829408af4"
+            },
+            "name": "Pizza Margarita",
+            "description": "De queso y carne",
+            "image": null,
+            "price": 12,
+            "category": "Queso"
+        },
+        {
+            "_id": {
+                "$oid": "6458b54b04f2274829408af5"
+            },
+            "name": "Vegan Burger",
+            "description": "sin animal",
+            "image": null,
+            "price": 10,
+            "category": null
+        },
+        {
+            "_id": {
+                "$oid": "6458b54b04f2274829408af6"
+            },
+            "name": "Fanta",
+            "description": "dulce sabor a naranja",
+            "image": null,
+            "price": 2.5,
+            "category": null
+        },
+        {
+            "_id": {
+                "$oid": "6458b54b04f2274829408af7"
+            },
+            "name": "Agua",
+            "description": "sin cal",
+            "image": null,
+            "price": 2,
+            "category": null
+        },
+        {
+            "_id": {
+                "$oid": "6458b54b04f2274829408af8"
+            },
+            "name": "Pizza BBQ",
+            "description": "Solo carne",
+            "image": null,
+            "price": 14,
+            "category": "carne"
+        },
+        {
+            "_id": {
+                "$oid": "6458b54b04f2274829408af9"
+            },
+            "name": "Pizza vegan",
+            "description": "sin animal",
+            "image": null,
+            "price": 15,
+            "category": "vegana"
+        }
+    ])
+
+db.createCollection("store")
+db.insertMany(
+    [{
+            "_id": {
+                "$oid": "6458c46604f2274829408b00"
+            },
+            "address": "Calle Lepanto 222",
+            "cp": 8009,
+            "location": "Barcelona",
+            "province": "Barcelona",
+            "employees": [{
+                    "$oid": "6458c48404f2274829408b04"
+                },
+                {
+                    "$oid": "6458c48404f2274829408b05"
+                }
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "6458c46604f2274829408b01"
+            },
+            "address": "Calle Casablanca 25",
+            "cp": 8006,
+            "location": "Sabadell",
+            "province": "Barcelona",
+            "employees": [{
+                    "$oid": "6458c48404f2274829408b06"
+                },
+                {
+                    "$oid": "6458c48404f2274829408b06"
+                }
+            ]
+        }
+    ])
+
+db.createCollection("employee")
+db.insertMany(
+    [{
+            "_id": {
+                "$oid": "6458c48404f2274829408b04"
+            },
+            "name": "Juan",
+            "surname": "Perez",
+            "NIF": "21753415S",
+            "phone": 625555141,
+            "type": "chef"
+        },
+        {
+            "_id": {
+                "$oid": "6458c48404f2274829408b05"
+            },
+            "name": "Jordi",
+            "surname": "Olivella",
+            "NIF": "21753111J",
+            "phone": 625555111,
+            "type": "delivey_man"
+        },
+        {
+            "_id": {
+                "$oid": "6458c48404f2274829408b06"
+            },
+            "name": "Sara",
+            "surname": "Ramos",
+            "NIF": "21753444L",
+            "phone": 625555444,
+            "type": "chef"
+        },
+        {
+            "_id": {
+                "$oid": "6458c48404f2274829408b07"
+            },
+            "name": "Axel",
+            "surname": "Enterrador",
+            "NIF": "217532225G",
+            "phone": 625555222,
+            "type": "delivey_man"
+        }
+    ])
+

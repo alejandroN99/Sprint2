@@ -1,0 +1,457 @@
+use youtube
+
+db.createCollection("user")
+db.insertMany(
+    [{
+            "_id": {
+                "$oid": "64593bbf04f2274829408b45"
+            },
+            "email": "pepe@gmail.com",
+            "password": "password1",
+            "name": "Pepe",
+            "date_born": "1998-01-12",
+            "sex": "M",
+            "country": "Spain",
+            "cp": 8003,
+            "videos": [{
+                "video": {
+                    "$oid": "64593bea04f2274829408b4a"
+                }
+            }],
+            "channel": {
+                "$oid": "64593c3b04f2274829408b58"
+            },
+            "subscription": [{
+                    "channel": {
+                        "$oid": "64593c3b04f2274829408b59"
+                    }
+                },
+                {
+                    "channel": {
+                        "$oid": "64593c3b04f2274829408b5a"
+                    }
+                }
+            ],
+            "playlist": {
+                "$oid": "64593c5b04f2274829408b5f"
+            }
+        },
+        {
+            "_id": {
+                "$oid": "64593bbf04f2274829408b46"
+            },
+            "email": "ara@gmail.com",
+            "password": "password2",
+            "name": "Ara",
+            "date_born": "1997-06-22",
+            "sex": "F",
+            "country": "Spain",
+            "cp": 8008,
+            "videos": [{
+                    "video": {
+                        "$oid": "64593bea04f2274829408b4b"
+                    }
+                },
+                {
+                    "video": {
+                        "$oid": "64593bea04f2274829408b4c"
+                    }
+                }
+            ],
+            "channel": {
+                "$oid": "64593c3b04f2274829408b59"
+            },
+            "subscription": [{
+                "channel": {
+                    "$oid": "64593c3b04f2274829408b58"
+                }
+            }],
+            "playlist": {
+                "$oid": "64593c5b04f2274829408b60"
+            }
+        },
+        {
+            "_id": {
+                "$oid": "64593bbf04f2274829408b47"
+            },
+            "email": "alejandro@gmail.com",
+            "password": "password",
+            "name": "Alejandro",
+            "date_born": "1999-01-14",
+            "sex": "M",
+            "country": "Spain",
+            "cp": 8005,
+            "videos": [{
+                "video": {
+                    "$oid": "64593bea04f2274829408b4d"
+                }
+            }],
+            "channel": {
+                "$oid": "64593c3b04f2274829408b5a"
+            },
+            "subscription": [{
+                "channel": {
+                    "$oid": "64593c3b04f2274829408b5b"
+                }
+            }],
+            "playlist": {
+                "$oid": "64593c5b04f2274829408b5e"
+            }
+        }
+    ])
+
+db.createCollection("videos")
+db.insertMany(
+    [{
+            "_id": {
+                "$oid": "64593bea04f2274829408b4a"
+            },
+            "tittle": "Dogs",
+            "description": "Dogs are playing",
+            "size": "1080 x 1080",
+            "file_name": "dogi.ss",
+            "duration": "8 min",
+            "thumbail": null,
+            "reproductions": 10000,
+            "likes": [{
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b45"
+                    },
+                    "date": "2022-07-23 09:55"
+                },
+                {
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b46"
+                    },
+                    "date": "2022-03-14 19:00"
+                }
+            ],
+            "dislikes": [{
+                "user": {
+                    "$oid": "64593bbf04f2274829408b47"
+                },
+                "date": "2022-08-23 19:15"
+            }],
+            "status": "public",
+            "labels": "ObjectId"
+        },
+        {
+            "_id": {
+                "$oid": "64593bea04f2274829408b4b"
+            },
+            "tittle": "Cats",
+            "description": "Cats are playing",
+            "size": "1080 x 1080",
+            "file_name": "cati.ss",
+            "duration": "5 min",
+            "thumbail": null,
+            "reproductions": 12000,
+            "likes": [{
+                "user": {
+                    "$oid": "64593bbf04f2274829408b45"
+                },
+                "date": "2022-07-23 09:55"
+            }],
+            "dislikes": [{
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b46"
+                    },
+                    "date": "2022-08-23 19:15"
+                },
+                {
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b47"
+                    },
+                    "date": "2022-06-13 19:00"
+                }
+            ],
+            "status": "private",
+            "labels": "ObjectId"
+        },
+        {
+            "_id": {
+                "$oid": "64593bea04f2274829408b4c"
+            },
+            "tittle": "Horse",
+            "description": "Horse are playing",
+            "size": "1080 x 1080",
+            "file_name": "horsi.ss",
+            "duration": "89 min",
+            "thumbail": null,
+            "reproductions": 220000,
+            "likes": [{
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b45"
+                    },
+                    "date": "2022-07-23 09:55"
+                },
+                {
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b46"
+                    },
+                    "date": "2022-03-14 19:00"
+                }
+            ],
+            "dislikes": [{
+                "user": {
+                    "$oid": "64593bbf04f2274829408b47"
+                },
+                "date": "2022-08-23 19:15"
+            }],
+            "status": "public",
+            "labels": "ObjectId"
+        },
+        {
+            "_id": {
+                "$oid": "64593bea04f2274829408b4d"
+            },
+            "tittle": "Frogs",
+            "description": "Frogs are playing",
+            "size": "1080 x 1080",
+            "file_name": "frogi.ss",
+            "duration": "22 min",
+            "thumbail": null,
+            "reproductions": 10000,
+            "likes": [{
+                "user": {
+                    "$oid": "64593bbf04f2274829408b45"
+                },
+                "date": "2022-07-23 09:55"
+            }],
+            "dislikes": [{
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b46"
+                    },
+                    "date": "2022-08-23 19:15"
+                },
+                {
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b47"
+                    },
+                    "date": "2022-06-13 19:00"
+                }
+            ],
+            "status": "public",
+            "labels": "ObjectId"
+        }
+    ])
+
+
+db.createCollection("labels")
+db.insertMany(
+    [{
+            "_id": {
+                "$oid": "64593c2004f2274829408b50"
+            },
+            "name": "label01",
+            "user_publish_video": {
+                "$oid": "64593bbf04f2274829408b45"
+            },
+            "date/hour": "2021-08-09 16:45"
+        },
+        {
+            "_id": {
+                "$oid": "64593c2004f2274829408b51"
+            },
+            "name": "label02",
+            "user_publish_video": {
+                "$oid": "64593bbf04f2274829408b45"
+            },
+            "date/hour": "2021-07-09 16:45"
+        },
+        {
+            "_id": {
+                "$oid": "64593c2004f2274829408b52"
+            },
+            "name": "label03",
+            "user_publish_video": {
+                "$oid": "64593bbf04f2274829408b46"
+            },
+            "date/hour": "2022-08-09 16:45"
+        },
+        {
+            "_id": {
+                "$oid": "64593c2004f2274829408b53"
+            },
+            "name": "label04",
+            "user_publish_video": {
+                "$oid": "64593bbf04f2274829408b47"
+            },
+            "date/hour": "2021-01-09 16:45"
+        }
+    ])
+
+
+db.createCollection("channel")
+db.insertMany(
+    [{
+            "_id": {
+                "$oid": "64593c3b04f2274829408b58"
+            },
+            "name": "Dogi_channel",
+            "description": "Dogs channel",
+            "creation_date": "2012-08-05"
+        },
+        {
+            "_id": {
+                "$oid": "64593c3b04f2274829408b59"
+            },
+            "name": "Cati_channel",
+            "description": "Cats channel",
+            "creation_date": "2013-08-05"
+        },
+        {
+            "_id": {
+                "$oid": "64593c3b04f2274829408b5a"
+            },
+            "name": "Frogi_channel",
+            "description": "frogs channel",
+            "creation_date": "2014-08-05"
+        },
+        {
+            "_id": {
+                "$oid": "64593c3b04f2274829408b5b"
+            },
+            "name": "Horsi_channel",
+            "description": "Horse channel",
+            "creation_date": "2015-08-05"
+        }
+    ])
+
+
+db.createCollection("playlist")
+db.insertMany(
+    [{
+            "_id": {
+                "$oid": "64593c5b04f2274829408b5e"
+            },
+            "name": "Pim Pam Pum",
+            "creation_date": "2017-02-11",
+            "status": "public"
+        },
+        {
+            "_id": {
+                "$oid": "64593c5b04f2274829408b5f"
+            },
+            "name": "I am developer",
+            "creation_date": "2018-02-11",
+            "status": "public"
+        },
+        {
+            "_id": {
+                "$oid": "64593c5b04f2274829408b60"
+            },
+            "name": "Party",
+            "creation_date": "2019-02-11",
+            "status": "private"
+        }
+    ])
+
+
+db.createCollection("comments")
+db.insertMany(
+    [{
+            "_id": {
+                "$oid": "64593c8004f2274829408b63"
+            },
+            "text": "Very good video",
+            "date": "2020-08-08 12:00",
+            "I_like": [{
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b45"
+                    },
+                    "date": "2021-09-09 13:45"
+                },
+                {
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b46"
+                    },
+                    "date": "2022-03-04 15:45"
+                }
+            ],
+            "Not_like": {
+                "user": {
+                    "$oid": "64593bbf04f2274829408b47"
+                },
+                "date": "2022-03-09 17:45"
+            }
+        },
+        {
+            "_id": {
+                "$oid": "64593c8004f2274829408b64"
+            },
+            "text": "Very shit video",
+            "date": "2021-04-08 16:00",
+            "I_like": [{
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b45"
+                    },
+                    "date": "2021-09-09 13:45"
+                },
+                {
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b46"
+                    },
+                    "date": "2022-03-04 15:45"
+                }
+            ],
+            "Not_like": {
+                "user": {
+                    "$oid": "64593bbf04f2274829408b47"
+                },
+                "date": "2022-03-09 17:45"
+            }
+        },
+        {
+            "_id": {
+                "$oid": "64593c8004f2274829408b65"
+            },
+            "text": "I love this video",
+            "date": "2020-01-08 19:00",
+            "I_like": [{
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b45"
+                    },
+                    "date": "2021-09-09 13:45"
+                },
+                {
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b46"
+                    },
+                    "date": "2022-03-04 15:45"
+                }
+            ],
+            "Not_like": {
+                "user": {
+                    "$oid": "64593bbf04f2274829408b47"
+                },
+                "date": "2022-03-09 17:45"
+            }
+        },
+        {
+            "_id": {
+                "$oid": "64593c8004f2274829408b66"
+            },
+            "text": "Omg this video",
+            "date": "2020-02-11 11:00",
+            "I_like": [{
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b45"
+                    },
+                    "date": "2021-09-09 13:45"
+                },
+                {
+                    "user": {
+                        "$oid": "64593bbf04f2274829408b46"
+                    },
+                    "date": "2022-03-04 15:45"
+                }
+            ],
+            "Not_like": {
+                "user": {
+                    "$oid": "64593bbf04f2274829408b47"
+                },
+                "date": "2022-03-09 17:45"
+            }
+        }
+    ])

@@ -1,0 +1,387 @@
+use spotify
+
+db.createCollection("user")
+db.insertMany(
+    [{
+        "_id": {
+          "$oid": "645a051ace8439a53f06a865"
+        },
+        "type": "premium",
+        "email": "alejandro@gmail.com",
+        "password": "passwoord",
+        "name": "Alejandro",
+        "date_born": "1999-01-14",
+        "sex": "M",
+        "country": "Spain",
+        "postal_code": 8005,
+        "subscription": {
+          "start_date": "2020-04-14",
+          "renovation": "2021-04-14",
+          "way_to_pay": {
+            "pay_with": {
+              "$oid": "645a0582ce8439a53f06a86e"
+            },
+            "credit card": "ObjectId"
+          }
+        },
+        "playlist": {
+          "$oid": "645a05bece8439a53f06a876"
+        },
+        "follow_artist": {
+          "$oid": "645a05e1ce8439a53f06a879"
+        },
+        "album_and_songd_fav": [
+          {
+            "$oid": "645a05e1ce8439a53f06a879"
+          },
+          {
+            "$oid": "645a05face8439a53f06a87e"
+          }
+        ]
+      },
+      {
+        "_id": {
+          "$oid": "645a0537ce8439a53f06a867"
+        },
+        "type": "premium",
+        "email": "juan@gmail.com",
+        "password": "passwoord",
+        "name": "Juan",
+        "date_born": "1998-02-24",
+        "sex": "M",
+        "country": "Spain",
+        "postal_code": 8005,
+        "subscription": {
+          "start_date": "2021-04-14",
+          "renovation": "2022-04-14",
+          "way_to_pay": {
+            "pay_with": "Paypal",
+            "user_paypal": {
+              "$oid": "645a0599ce8439a53f06a872"
+            }
+          }
+        },
+        "playlist": null,
+        "follow_artist": {
+          "$oid": "645a05e1ce8439a53f06a87a"
+        },
+        "album_and_songd_fav": {
+          "$oid": "645a05face8439a53f06a87e"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "645a0549ce8439a53f06a869"
+        },
+        "type": "free",
+        "email": "sara@gmail.com",
+        "password": "passwoord",
+        "name": "Sara",
+        "date_born": "1997-03-10",
+        "sex": "F",
+        "country": "Spain",
+        "postal_code": 8005,
+        "subscription": {
+          "start_date": "2019-04-14",
+          "renovation": "2020-04-14",
+          "way_to_pay": null
+        },
+        "playlist": null,
+        "follow_artist": {
+          "$oid": "645a05e1ce8439a53f06a87b"
+        },
+        "album_and_songd_fav": [
+          {
+            "$oid": "645a05face8439a53f06a87e"
+          },
+          {
+            "$oid": "645a05face8439a53f06a87f"
+          }
+        ]
+      },
+      {
+        "_id": {
+          "$oid": "645a055dce8439a53f06a86b"
+        },
+        "type": "free",
+        "email": "maria@gmail.com",
+        "password": "passwoord",
+        "name": "Maria",
+        "date_born": "1996-07-18",
+        "sex": "F",
+        "country": "Spain",
+        "postal_code": 8005,
+        "subscription": {
+          "start_date": "2015-04-14",
+          "renovation": "2016-04-14",
+          "way_to_pay": null
+        },
+        "playlist": null,
+        "follow_artist": {
+          "$oid": "645a05e1ce8439a53f06a879"
+        },
+        "album_and_songd_fav": [
+          {
+            "$oid": "645a05face8439a53f06a87f"
+          },
+          {
+            "$oid": "645a05face8439a53f06a880"
+          }
+        ]
+      }
+    ])
+
+db.createCollection("credit_card")
+db.insertMany(
+[
+    {
+        "_id": {
+          "$oid": "645a0582ce8439a53f06a86e"
+        },
+        "number_card": 987654321,
+        "date_of_expiry": "2023-08-09",
+        "security_code": 111,
+        "payment_record": [
+          {
+            "date": "2021-01-01",
+            "number_order": 1,
+            "total": 12
+          },
+          {
+            "date": "2021-02-01",
+            "number_order": 2,
+            "total": 12
+          },
+          {
+            "date": "2021-03-01",
+            "number_order": 3,
+            "total": 12
+          }
+        ]
+      },
+      {
+        "_id": {
+          "$oid": "645a0582ce8439a53f06a86f"
+        },
+        "number_card": 987652222,
+        "date_of_expiry": "2025-05-05",
+        "security_code": 221,
+        "payment_record": [
+          {
+            "date": "2020-04-01",
+            "number_order": 1,
+            "total": 11
+          },
+          {
+            "date": "2020-05-01",
+            "number_order": 2,
+            "total": 11
+          },
+          {
+            "date": "2020-06-01",
+            "number_order": 3,
+            "total": 11
+          }
+        ]
+      }
+])
+
+db.createCollection("paypal")
+db.insertMany(
+[
+    {
+        "_id": {
+          "$oid": "645a0599ce8439a53f06a872"
+        },
+        "name_user": "Alejandro",
+        "payment_record": [
+          {
+            "date": "2019-01-01",
+            "number_order": 1,
+            "total": 15
+          },
+          {
+            "date": "2019-02-01",
+            "number_order": 2,
+            "total": 15
+          },
+          {
+            "date": "2019-03-01",
+            "number_order": 3,
+            "total": 15
+          }
+        ]
+      },
+      {
+        "_id": {
+          "$oid": "645a0599ce8439a53f06a873"
+        },
+        "name_user": "Pepe",
+        "payment_record": [
+          {
+            "date": "2017-01-01",
+            "number_order": 1,
+            "total": 18
+          },
+          {
+            "date": "2017-02-01",
+            "number_order": 2,
+            "total": 18
+          },
+          {
+            "date": "2017-03-01",
+            "number_order": 3,
+            "total": 18
+          }
+        ]
+      }
+])
+
+db.createCollection("playlist")
+db.insertMany(
+
+{
+    "_id": {
+      "$oid": "645a05bece8439a53f06a876"
+    },
+    "tittle": "Exits 2022",
+    "number_songs": 3,
+    "date_start": "2020-08-11",
+    "status": "activa",
+    "delete_playlist": {
+      "delete": null,
+      "date": null
+    },
+    "songs": [
+      {
+        "user": {
+          "$oid": "645a051ace8439a53f06a865"
+        },
+        "date": "2018-07-25",
+        "song": {
+          "$oid": "645a05face8439a53f06a87e"
+        }
+      },
+      {
+        "user": {
+          "$oid": "645a051ace8439a53f06a867"
+        },
+        "date": "2019-07-25",
+        "song": {
+          "$oid": "645a05face8439a53f06a87f"
+        }
+      },
+      {
+        "user": {
+          "$oid": "645a051ace8439a53f06a869"
+        },
+        "date": "20120-07-25",
+        "song": {
+          "$oid": "645a05face8439a53f06a880"
+        }
+      }
+    ]
+  }
+)
+
+db.createCollection("artists")
+db.insertMany(
+[
+    {
+        "_id": {
+          "$oid": "645a05e1ce8439a53f06a879"
+        },
+        "name": "Fondo Flamenco",
+        "image": null,
+        "albums": {
+          "tittle": "Flamenco",
+          "year": "2010-08-09",
+          "image": null,
+          "songs": [
+            {
+              "$oid": "645a05face8439a53f06a87f"
+            }
+          ]
+        },
+        "related_artist": []
+      },
+      {
+        "_id": {
+          "$oid": "645a05e1ce8439a53f06a87a"
+        },
+        "name": "Remi",
+        "image": null,
+        "albums": {
+          "tittle": "Calm down",
+          "year": "2012-03-09",
+          "image": null,
+          "songs": [
+            {
+              "$oid": "645a05face8439a53f06a87e"
+            }
+          ]
+        },
+        "related_artist": [
+          {
+            "$oid": "645a05e1ce8439a53f06a879"
+          }
+        ]
+      },
+      {
+        "_id": {
+          "$oid": "645a05e1ce8439a53f06a87b"
+        },
+        "name": "Niña Pastori",
+        "image": null,
+        "albums": {
+          "tittle": "Flamenco 2",
+          "year": "2015-05-05",
+          "image": null,
+          "songs": [
+            {
+              "$oid": "645a05face8439a53f06a880"
+            }
+          ]
+        },
+        "related_artist": [
+          {
+            "$oid": "645a05e1ce8439a53f06a87a"
+          },
+          {
+            "$oid": "645a05e1ce8439a53f06a879"
+          }
+        ]
+      }
+])
+
+db.createCollection("songs")
+db.insertMany(
+[
+    {
+        "_id": {
+          "$oid": "645a05face8439a53f06a87e"
+        },
+        "tittle": "Calm down",
+        "duration": "4 min",
+        "reproductions": 12000
+      },
+      {
+        "_id": {
+          "$oid": "645a05face8439a53f06a87f"
+        },
+        "tittle": "Un patio andaluz",
+        "duration": "3 min",
+        "reproductions": 12000
+      },
+      {
+        "_id": {
+          "$oid": "645a05face8439a53f06a880"
+        },
+        "tittle": "Libertad",
+        "duration": "5 min",
+        "reproductions": 12000
+      }
+    
+])
+
+

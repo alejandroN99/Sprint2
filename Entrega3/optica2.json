@@ -1,0 +1,167 @@
+use optica
+
+//glasses
+db.createCollection("glasses")
+db.insertMany(
+  [{
+      "_id": {
+        "$oid": "6454e2e4c40a239e0ca5768d"
+      },
+      "marca": "RayBan",
+      "graduation_r": 0.75,
+      "graduation_l": 0.5,
+      "frame_type": "F",
+      "color": "Azul",
+      "color_vidreo_r": "Negro",
+      "color_vidreo_l": "Negro",
+      "price": 99.99,
+      "bought_from": {
+        "$oid": "6454d27404f2274829408a8f"
+      },
+      "sold": {
+        "sold_by": {
+          "$oid": "6454d6c204f2274829408a9c"
+        },
+        "date": "2023-02-01"
+      },
+      "customer": {
+        "$oid": "6454db33c40a239e0ca5768c"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6454e467c40a239e0ca5768e"
+      },
+      "marca": "Adidas",
+      "graduation_r": 1.75,
+      "graduation_l": 1.5,
+      "frame_type": "P",
+      "color": "Negro",
+      "color_vidreo_r": "Negro",
+      "color_vidreo_l": "Negro",
+      "price": 180,
+      "bought_from": {
+        "$oid": "6454d27404f2274829408a8f"
+      },
+      "sold": {
+        "sold_by": {
+          "$oid": "6454d6c204f2274829408a9c"
+        },
+        "date": "2023-02-02"
+      },
+      "customer": {
+        "$oid": "6454d7b004f2274829408aa1"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6454e559c40a239e0ca5768f"
+      },
+      "marca": "Nike",
+      "graduation_r": 1.25,
+      "graduation_l": 1.25,
+      "frame_type": "P",
+      "color": "Rojo",
+      "color_vidreo_r": "Verde",
+      "color_vidreo_l": "Verde",
+      "price": 70,
+      "bought_from": {
+        "$oid": "6454d27404f2274829408a90"
+      },
+      "sold": [{
+          "sold_by": {
+            "$oid": "6454d6c204f2274829408a9d"
+          }
+        },
+        {
+          "date": "2023-02-03"
+        }
+      ],
+      "customer": {
+        "$oid": "6454db33c40a239e0ca5768c"
+      }
+    }
+  ])
+
+//Supplier
+db.createCollection("supplier")
+db.insertMany(
+  [{
+      "_id": {
+        "$oid": "6454d27404f2274829408a8f"
+      },
+      "name": "Alejandro",
+      "adress": "Espanya,Barcelona 08005, Calle Ramon Turro 10 esc A 4-3ª",
+      "phone": 655534188,
+      "fax": 1111,
+      "NIF": 222333444,
+      "glasses_brand": [
+        "RayBan",
+        "Adidas"
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "6454d27404f2274829408a90"
+      },
+      "name": "Sara",
+      "adress": "Espanya,Barcelona 08004, Calle Llull 20 esc A 7-3ª",
+      "phone": "655534999",
+      "fax": "2222",
+      "NIF": "222333555",
+      "glasses_brand": "Nike"
+    }
+  ])
+
+//Customer
+db.createCollection("customer")
+db.insertMany(
+
+  [{
+      "_id": {
+        "$oid": "6454d7b004f2274829408aa1"
+      },
+      "name": "Jose",
+      "adress": "Espanya,Barcelona,Calle Marina 34",
+      "postal_code": 8006,
+      "phone": 655588899,
+      "gmail": "jose@gmail.com",
+      "date_record": "2022-01-01",
+      "recommendaiton_of": null
+    },
+    {
+      "_id": {
+        "$oid": "6454db33c40a239e0ca5768c"
+      },
+      "name": "Pepe",
+      "adress": "Espanya,Barcelona,Calle Marina 64",
+      "postal_code": 8007,
+      "phone": 655577799,
+      "gmail": "pepe@gmail.com",
+      "date_record": "2022-01-02",
+      "recommendaiton_of": {
+        "$oid": "6454d7b004f2274829408aa1"
+      }
+    }
+  ])
+
+//employee
+db.createCollection("employee")
+db.insertMany(
+  [{
+      "_id": {
+        "$oid": "6454d6c204f2274829408a9c"
+      },
+      "name": "Juan",
+      "last_name": "Perez",
+      "glasses_sold": 4
+    },
+    {
+      "_id": {
+        "$oid": "6454d6c204f2274829408a9d"
+      },
+      "name": "Silvia",
+      "last_name": "Rodriguez",
+      "glasses_sold": 7
+    }
+  ])
